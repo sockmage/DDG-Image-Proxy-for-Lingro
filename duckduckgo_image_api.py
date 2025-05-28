@@ -2,6 +2,7 @@ from fastapi import FastAPI, Query
 from duckduckgo_search import DDGS
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+import random
 
 app = FastAPI()
 
@@ -19,4 +20,5 @@ def image_search(q: str = Query(..., description="Search query")):
         results = list(ddgs.images(q, safesearch="moderate"))
         if not results:
             return JSONResponse(content={"error": "No images found"}, media_type="application/json")
-        return JSONResponse(content={"image": results[0]["image"]}, media_type="application/json") 
+        image = random.choice(results)["image"]
+        return JSONResponse(content={"image": image}, media_type="application/json") 
