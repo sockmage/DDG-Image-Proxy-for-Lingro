@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Query
 from duckduckgo_search import DDGS
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
@@ -17,5 +18,5 @@ def image_search(q: str = Query(..., description="Search query")):
     with DDGS() as ddgs:
         results = list(ddgs.images(q, safesearch="moderate"))
         if not results:
-            return {"error": "No images found"}
-        return {"image": results[0]["image"]} 
+            return JSONResponse(content={"error": "No images found"}, media_type="application/json")
+        return JSONResponse(content={"image": results[0]["image"]}, media_type="application/json") 
