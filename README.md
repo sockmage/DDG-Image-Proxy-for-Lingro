@@ -1,4 +1,4 @@
-# DDG-Image-Proxy-for-Lingro
+# DuckDuckGo Image API for Lingro
 
 FastAPI-сервис для поиска изображений через DuckDuckGo. Используется в связке с Lingro для поиска и отправки изображений пользователям.
 
