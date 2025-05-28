@@ -34,7 +34,3 @@ GET http://localhost:8080/image/search?q=car
 1. Зайдите на [Railway](https://railway.app/), создайте новый проект.
 2. Подключите репозиторий с DDG-Image-Proxy-for-Lingro.
 3. Railway автоматически определит Python и запустит сервис.
-
-## Лицензия
-
-GPL-2.0
